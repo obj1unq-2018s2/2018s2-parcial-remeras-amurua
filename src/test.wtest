@@ -2,6 +2,7 @@ import remeras.*
 import empresa.*
 import pedido.*
 import sucursal.*
+import comercio.*
 
 describe"test remeras"{
 	
@@ -23,6 +24,8 @@ describe"test remeras"{
 	var sucursal1 = new Sucursal()
 	var pedido1 = new Pedido(remeras = [remeraNegraBordada, remeraVerdeBordada], sucursal = sucursal1)
 	
+	var comercio = new Comercio(sucursales = [sucursal1])
+	
 	test "Modelos de Remeras" {
 	
 		assert.equals(100,remeraBlanca.costo())
@@ -43,7 +46,9 @@ describe"test remeras"{
 	}
 	
 	test "Comercios"{
-		assert.that(true)
+		
+		comercio.registrarPedido(pedido1)
+		assert.equals([pedido1],sucursal1.pedidos())
 	}
 
 }

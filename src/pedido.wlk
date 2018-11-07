@@ -2,7 +2,7 @@ import remeras.*
 
 class Pedido{
 	const remeras = []
-	const sucursal
+	const property sucursal
 	
 	method costoDePedido(){
 		return self.costoDeBase() - self.costoDeDescuento()

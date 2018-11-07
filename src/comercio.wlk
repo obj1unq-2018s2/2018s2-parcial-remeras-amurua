@@ -33,16 +33,7 @@ class Comercio {
 	}
 	
 	method pedidoMasCaro(){
-		return self.sucursales().find{sucursal => sucursal.}
-	}
-	
-	method tallesNoPedidos(){
-		var talles = new Range(32 , 48)
-		var tallesNoPedidos
-		
-		
-		
-		return tallesNoPedidos
+		return self.sucursales().find{sucursal => sucursal == sucursal}
 	}
 	
 	method sucursalQueMasFacturo(){
