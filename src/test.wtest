@@ -1,0 +1,49 @@
+import remeras.*
+import empresa.*
+import pedido.*
+import sucursal.*
+
+describe"test remeras"{
+	
+	//MODELOS DE REMERAS
+	var remeraBlanca = new RemeraLisa(talle = 45, color = "Blanco")
+	var remeraRoja = new RemeraLisa(talle = 35, color = "Rojo")
+	
+	var remeraNegraBordada = new RemeraBordada(talle = 44, color = "Negro", cantDeColores = 4)
+	var remeraVerdeBordada = new RemeraBordada(talle = 35, color = "Verde", cantDeColores = 1)
+	
+	var disney = new Empresa(derechoDeAutor = 100)
+	var dibujoMickey = new Dibujo(alto = 15, ancho = 10, empresa = disney)
+	var dibujoPluto = new Dibujo(alto = 30, ancho = 30, empresa = disney)
+	
+	var remeraGrisSublimada = new RemeraSublimada(talle = 42, color = "Gris", dibujo = dibujoMickey, convenioCon = disney)
+	var remeraVioletaSublimada = new RemeraSublimada(talle = 35, color = "Verde", dibujo = dibujoPluto, convenioCon = disney)
+	
+	//PEDIDOS Y SUCURSALES
+	var sucursal1 = new Sucursal()
+	var pedido1 = new Pedido(remeras = [remeraNegraBordada, remeraVerdeBordada], sucursal = sucursal1)
+	
+	test "Modelos de Remeras" {
+	
+		assert.equals(100,remeraBlanca.costo())
+		assert.equals(88,remeraRoja.costo())
+		
+		assert.equals(140,remeraNegraBordada.costo())
+		assert.equals(108,remeraVerdeBordada.costo())		
+		
+		assert.equals(275,remeraGrisSublimada.costo())
+		assert.equals(638,remeraVioletaSublimada.costo())
+	}
+	
+	test "Pedidos y Sucursales"{
+		sucursal1.cantParaDescuento(2)
+		assert.equals(496,pedido1.costoDeBase())
+		assert.equals(486.08,pedido1.costoDePedido())
+		
+	}
+	
+	test "Comercios"{
+		assert.that(true)
+	}
+
+}
