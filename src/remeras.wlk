@@ -58,7 +58,7 @@ class RemeraBordada inherits RemeraLisa{
 
 class RemeraSublimada inherits RemeraLisa{
 	const dibujo
-	const convenioCon
+	const convenioCon // TODO Debería ser un atributo de la empresa del dibujo
 	
 	override method costo(){
 		return super() + self.costoDeSublimado() + dibujo.empresa().derechoDeAutor() 

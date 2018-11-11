@@ -20,23 +20,23 @@ class Comercio {
 		return self.sucursales().sum{sucursal => sucursal.totalFacturado()}
 	}
 	
-	method totalFacturadoPorSucursal(sucursal){
+	method totalFacturadoPorSucursal(sucursal){ // TODO Este método es innecesario
 		return sucursal.totalFacturado()
 	}
 	
 	method cantDePedidosDeColor(color){
-		var cantidad
+		var cantidad // TODO ¿Para qué esta variable?
 		
 		cantidad = self.sucursales().sum{sucursal => sucursal.cantDePedidosDeColor(color)}
 		
 		return cantidad
 	}
 	
-	method pedidoMasCaro(){
+	method pedidoMasCaro(){ // TODO El código no corresponde con el nombre del método
 		return self.sucursales().find{sucursal => sucursal == sucursal}
 	}
 	
-	method sucursalQueMasFacturo(){
+	method sucursalQueMasFacturo(){ // TODO No hace lo que se pide.
 		return self.sucursales().filter{sucursal => sucursal.totalFacturado() == self.pedidoMasCaro()}
 	}
 }

@@ -14,22 +14,22 @@ class Sucursal{
 	
 	method cantDePedidosDeColor(color){
 		
-		return self.pedidosDeColor(color).size()
+		return self.pedidosDeColor(color).size() // TODO Más fácil con count.
 	}
 	
 	method pedidosDeColor(color){
-		var auxPedidos
+		var auxPedidos // TODO Variable innecesaria
 		
 		auxPedidos = pedidos.filter{remera => remera.color() == color}
 		
 		return auxPedidos
 	}
 	
-	method pedidoMasCaro(){
+	method pedidoMasCaro(){ // TODO Hay formas más simples de hacer esto.
 		return self.pedidos().find{pedido => pedido.costoDePedido() == self.costoDePedidoMasCaro()}
 	}
 	
-	method costoDePedidoMasCaro(){
+	method costoDePedidoMasCaro(){ // TODO Esto devuelve un pedido, no un costo.
 		return self.pedidos().max{pedido => pedido.costoDePedido()}
 	}
 }

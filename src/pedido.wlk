@@ -1,7 +1,7 @@
 import remeras.*
 
 class Pedido{
-	const remeras = []
+	const remeras = [] // El pedido debería tener un único modelo de remera.
 	const property sucursal
 	
 	method costoDePedido(){
@@ -35,6 +35,7 @@ class Pedido{
 	}
 	
 	method traerPorcentajeDeDescuento(){
+		// TODO Esta cuenta no está bien, parece un promedio, no coincide con el enunciado.
 		return remeras.sum{remera => remera.porcentajeDeDescuento()} / self.cantDeRemeras()
 	}
 }
